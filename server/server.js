@@ -1,17 +1,18 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 
-var {mongoose} = require('./db/connectDB');
-var {Game} = require('./models/game');
-var {User} = require('./models/user');
+const gameRoutes = require('./routes/gameRoutes');
 
 const port = process.env.PORT || 3000;
 var app = express();
 
-app.use(express.static('public'))
+app.use(bodyParser.urlencoded({extended : true}));
+app.use(bodyParser.json());
 
-app.get('/games', (req, res) => {
-  res.send('Following is the list of games');
+app.use('/game', gameRoutes);
+
+app.post('/', (req, res) => {
+  console.log(req.body);
 });
 
 app.listen(port, () => {

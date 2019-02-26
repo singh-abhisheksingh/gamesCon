@@ -15,16 +15,25 @@ var UserSchema = new Schema({
 		minlength: 7,
 		unique: true,
     trim: true,
-    lowercase: true
+    uppercase: true
 	},
-  game: {
-    type: Number,
-    default: null
-  },
-  percentile :{
-    type: String,
-    default: null
-  }
+	gameScore1: Number,
+	gamePercentile1: Number,
+	gameScore2: Number,
+	gamePercentile2: Number,
+	gameScore3: Number,
+	gamePercentile3: Number,
+	gameScore4: Number,
+	gamePercentile4: Number,
+	gameScore5: Number,
+	gamePercentile5: Number,
+	gameScore6: Number,
+	gamePercentile6: Number,
+	gameScore7: Number,
+	gamePercentile7: Number,
+	gameScore8: Number,
+	gamePercentile8: Number,
+  percentile: Number
 });
 
 module.exports = mongoose.model('User', UserSchema);
