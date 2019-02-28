@@ -20,9 +20,9 @@ var UserSchema = new Schema({
 	gamesScore:[{
 		gameId: Number,
 		score: {type: Number, default: 0},
-		percentile: {type: Number, default: null}
+		percentile: {type: Number, default: 0}
 	}],
-  finalPercentile: Number
+	finalPercentile: {type: Number, default: 0}
 });
 
 module.exports = mongoose.model('User', UserSchema);

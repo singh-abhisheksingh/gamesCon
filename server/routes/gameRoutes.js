@@ -19,7 +19,6 @@ router.route('/:id/submit').post(async (req, res) => {
   var prevScore = user.gamesScore[game-1].score;
   if(!prevScore || score>prevScore){
     user.gamesScore[game-1].score = score;
-    // user.gamesScore[game-1].percentile = await calculatePercentile(game, score);
   }
 
   user.save(function (err) {
@@ -51,24 +50,5 @@ router.route('/:id/leader').get(async (req, res) => {
   res.setHeader('Content-Type', 'application/json');
   res.end(JSON.stringify(users, null, 2));
 });
-
-async function calculatePercentile(game, score){
-  var less = await User.find({
-    gamesScore: {
-      $elemMatch: {
-        gameId: game,
-        score: {$lte: score}
-      }
-    }
-  }).countDocuments();
-  var len = await User.find().countDocuments();
-  if(len == 0){
-    len = 1;
-    less = 1;
-  }
-  console.log(less);
-  console.log(len);
-  return less/len*100;
-}
 
 module.exports = router;
