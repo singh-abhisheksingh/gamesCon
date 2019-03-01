@@ -21,14 +21,26 @@ router.route('/:id/submit').post(async (req, res) => {
     user.gamesScore[game-1].score = score;
   }
 
+  res.setHeader('Content-Type', 'application/json');
+
   user.save(function (err) {
     if(err) {
-      console.error(err);
+      console.log("Could not save user. Kindly provide correct details.");
+      res.end(JSON.stringify({
+        status: "failure",
+        data: [],
+        message: "Invalid credentials. Try Again."
+      }, null, 2));
+      return;
     }
+
+    res.end(JSON.stringify({
+      status: "success",
+      data: user,
+      message: "User score saved successfully."
+    }, null, 2));
   });
 
-  res.setHeader('Content-Type', 'application/json');
-  res.end(JSON.stringify(user, null, 2));
 });
 
 router.route('/:id/leader').get(async (req, res) => {
@@ -46,9 +58,13 @@ router.route('/:id/leader').get(async (req, res) => {
 			}
 		}
   ]);
-
+  var ranks = {
+    status: "success",
+    data: users,
+    message: "Scores retrieved succesfully"
+  };
   res.setHeader('Content-Type', 'application/json');
-  res.end(JSON.stringify(users, null, 2));
+  res.end(JSON.stringify(ranks, null, 2));
 });
 
 module.exports = router;

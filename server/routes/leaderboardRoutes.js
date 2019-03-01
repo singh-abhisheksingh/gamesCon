@@ -34,9 +34,13 @@ router.route('/').get(async (req, res) => {
   }
 
   var users = await User.find().sort({finalPercentile: -1}).select({ "name": 1, "admission_no": 1, "finalPercentile": 1, "_id": 0});
-
+  var ranks = {
+    status: "success",
+    data: users,
+    message: "Ranks retrieved succesfully"
+  };
   res.setHeader('Content-Type', 'application/json');
-  res.end(JSON.stringify(users, null, 2));
+  res.end(JSON.stringify(ranks, null, 2));
 });
 
 async function calculatePercentile(game, score){
