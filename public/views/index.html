@@ -5,12 +5,14 @@
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-      <link rel="stylesheet" type="text/css" href="/assets/style.css">
+      <link rel="stylesheet" type="text/css" href="style.css">
       <script type="text/javascript">
         function saveData()
         {
           localStorage.setItem("admno", document.getElementById('admno').value);
           localStorage.setItem("uname", document.getElementById('uname').value);
+          console.log("done");
+          window.location.href = "/games.html";
         }
       </script>
       <title>GamesCon</title>
@@ -37,7 +39,7 @@
                 <label for="uname">Username</label>
               </div>
               <div class="input-field col l3 s12">
-                <button id="sbutton" class="btn blue waves-effect waves-light" onclick="saveData()">Play!
+                <button id="sbutton" class="btn blue waves-effect waves-light" type="button" onclick="saveData()">Play!
                 </button>
             </div>
             </div>
