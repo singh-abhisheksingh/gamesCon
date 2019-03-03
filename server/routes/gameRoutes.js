@@ -5,9 +5,9 @@ var mongoose = require('./../db/connectDB');
 var User = require('./../models/user');
 
 router.route('/:id/submit').post(async (req, res) => {
-  var game = req.params.id;
+  // var game = req.params.id;
   console.log(req.body);
-
+  var game = req.body.gameId;
   var nam = req.body.name.toUpperCase();
   var ad_no = req.body.admission_no.toUpperCase();
   var score = req.body.score;
