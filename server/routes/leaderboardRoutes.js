@@ -1,10 +1,28 @@
 const express = require('express');
 const router = express.Router();
+const jwt= require('jsonwebtoken');
 
 var mongoose = require('./../db/connectDB');
 var User = require('./../models/user');
 
-router.route('/').get(async (req, res) => {
+authenticate=function(req,res,next){
+  try{
+
+    decoded= jwt.verify(req.header('x-auth'),process.env.JWT_SECRET);
+    if(decoded.username==process.env.USERNAME&&decoded.password==process.env.PASSWORD){
+
+      next();
+    }
+    else{
+      res.status(401).send(); 
+    }
+
+  }catch(e){
+    res.status(401).send();
+  } 
+};
+
+router.route('/').get(authenticate, async (req, res) => {
   // user.gamesScore[game-1].percentile = await calculatePercentile(game, score);
 
   var users = await User.find();
@@ -61,5 +79,11 @@ async function calculatePercentile(game, score){
   // console.log(len);
   return less/len*100;
 }
+
+
+router.route('/getAuthToken').get(function(req,res){
+  var apiKey=jwt.sign({username:process.env.USERNAME,password:process.env.PASSWORD},process.env.JWT_SECRET).toString();
+  console.log(apiKey); 
+});
 
 module.exports = router;

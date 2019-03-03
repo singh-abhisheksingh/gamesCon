@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
-
+const config=require('.././config/config');
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost:27017/gamescon', { useNewUrlParser: true });
+mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true });
 
 mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
