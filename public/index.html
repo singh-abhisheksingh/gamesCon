@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="games.js"></script>
+    <script type="text/javascript">
+      function saveData()
+      {
+        localStorage.setItem("admno", document.getElementById('admno').value);
+        localStorage.setItem("uname", document.getElementById('uname').value);
+        window.location.href = "games.html";
+      }
+    </script>
+    <title>GamesCon</title>
+  </head>
+
+  <body>
+    <nav>
+      <div class="nav-wrapper light-blue ">
+        <a href="#!" class="brand-logo" id="navb"><i class="material-icons" style="font-size: 56px; margin-left: 42vw;">games</i><span id="gspan">GamesCon</span></a>
+        <a href="#" data-activates="mobile-demo" class="button-collapse"></a>
+      </div>
+    </nav>
+    <div id="box">
+      <h4 id="wel" class="grey-text text-darken-4">Welcome to GamesCon!</h4>
+      <div id="mform" class="row">
+        <form class="col l8 s10">
+          <div class="row">
+            <div class="input-field">
+              <input id="admno" type="text" class="validate">
+              <label for="admno">Admission Number</label>
+            </div>
+            <div class="input-field">
+              <input id="uname" type="text" class="validate">
+              <label for="uname">Username</label>
+            </div>
+            <div class="input-field col l3 s12">
+              <button id="sbutton" class="btn blue waves-effect waves-light" type="button" onclick="saveData()">Play!
+              </button>
+          </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!--Import jQuery before materialize.js-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+  </body>
+</html>

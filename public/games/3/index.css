@@ -1,0 +1,18 @@
+* {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+html {
+  height: 100%;
+  overflow: hidden;
+  background: url("bg.png");
+  background-attachment: fixed;
+  background-size: cover;
+}
+canvas {
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  top: 0px;
+  bottom: 0px;
+  margin: auto;
+}
