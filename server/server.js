@@ -1,6 +1,9 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+
 const config=require('./config/config');
+const jwt= require('jsonwebtoken');
+
 const gameRoutes = require('./routes/gameRoutes');
 const leaderboardRoutes = require('./routes/leaderboardRoutes');
 
@@ -21,8 +24,10 @@ app.use(bodyParser.json());
 app.use('/game', gameRoutes);
 app.use('/leader', leaderboardRoutes)
 
-app.post('/', (req, res) => {
+app.post('/score',authenticate ,async (req, res) => {
   console.log(req.body);
+  res.setHeader('Content-Type', 'application/json');
+  res.end(JSON.stringify(req.body, null, 2));
 });
 
 // var errorPg = path.join(__dirname, "../public/views/404.html");
@@ -31,6 +36,23 @@ app.get("*", function(req,res){
   res.send('404 Page Not found');
 });
 
-app.listen(port, () => {
+authenticate=function(req,res,next){
+  try{
+
+    decoded= jwt.verify(req.header('x-auth'),process.env.JWT_SECRET);
+    if(decoded.username==process.env.USERNAME&&decoded.password==process.env.PASSWORD){
+
+      next();
+    }
+    else{
+      res.status(401).send();
+    }
+
+  }catch(e){
+    res.status(401).send();
+  }
+};
+
+app.listen(port, '192.168.12.129', () => {
   console.log(`Server is up on port ${port}`);
 });
