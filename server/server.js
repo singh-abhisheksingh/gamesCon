@@ -1,6 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 
+const config = require('./config/config');
+
 const gameRoutes = require('./routes/gameRoutes');
 const leaderboardRoutes = require('./routes/leaderboardRoutes');
 
@@ -21,16 +23,12 @@ app.use(bodyParser.json());
 app.use('/game', gameRoutes);
 app.use('/leader', leaderboardRoutes)
 
-app.post('/', (req, res) => {
-  console.log(req.body);
-});
-
 // var errorPg = path.join(__dirname, "../public/views/404.html");
-app.get("*", function(req,res){
+app.get('*', function(req,res){
   // res.sendFile(errorPg);
-  res.send('404 Page Not found');
+  res.status(404).end('404 Page Not found');
 });
 
-app.listen(port, () => {
+app.listen(port, '192.168.1.7', () => {
   console.log(`Server is up on port ${port}`);
 });
