@@ -14,7 +14,8 @@ authenticate = function(req,res,next){
     else{
       res.status(401).send();
     }
-  }catch(e){
+  }
+  catch(e){
     res.status(401).send();
   }
 };
