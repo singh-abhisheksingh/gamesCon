@@ -12,7 +12,14 @@
         <script src="createjs-2013.09.25.min.js"></script>
         <script src="ndgmr.Collision.js"></script>
         <!-- http://www.dafont.com/04b-19.font?text=Flappy+Bird -->
-
+        <script type="text/javascript">
+            var uname=localStorage.getItem("uname");
+            if(uname==null)
+            {
+              alert("Enter Admission Number and Username First");
+              window.location.href="../../index.html";
+            }
+        </script>
         <style type="text/css">
 
             @font-face {

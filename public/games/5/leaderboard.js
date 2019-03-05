@@ -1,4 +1,4 @@
-var url = localStorage.getItem("getURL") + '/leader';
+var url = localStorage.getItem("getURL") + '/game/5/leader';
 console.log("URL="+url);
 
 window.onload = showResults();
@@ -19,7 +19,7 @@ function showResults () {
                      var sn = i + 1;
                      var user = index.name;
                      var add_no = index.admission_no;
-                     var score = index.finalPercentile.toPrecision(5);
+                     var score = index.gScore.score;
                      table.insertAdjacentHTML('beforeend', `<tr><td>${sn}</td><td>${user}</td><td>${add_no}</td><td>${score}</td></tr>`);
                 }
             }else{

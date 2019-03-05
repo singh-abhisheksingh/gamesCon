@@ -37,6 +37,14 @@
         <!-- ArrayBuffer and DataView support for IE9, required by P2 Physics. -->
         <script type="text/javascript" src="js/dataview-polyfill.js"></script>
         <script type="text/javascript" src="js/phaser-supercold.min.js"></script>
+        <script type="text/javascript">
+          var uname=localStorage.getItem("uname");
+          if(uname==null)
+          {
+            alert("Enter Admission Number and Username First");
+            window.location.href="../../index.html";
+          }
+        </script>
     </head>
     <body>
         

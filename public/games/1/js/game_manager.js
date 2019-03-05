@@ -31,8 +31,32 @@ GameManager.prototype.isGameTerminated = function () {
   console.log();
   if(this.over || (this.won && !this.keepPlaying))
     {
-      
+      // this.storageManager.setBestScore(this.score);
       console.log("isGameTerminated"); //***Runs if game ends;
+      var xauth=localStorage.getItem('x-auth');
+      var postURL=localStorage.getItem("postURL");
+      var send_data={
+        gid:1,
+        score: this.score,
+        uname:localStorage.getItem("uname"),
+        admno:localStorage.getItem("admno")
+      }
+      console.log(send_data);
+      var xauth=localStorage.getItem('x-auth');
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          // console.log("posted");
+          console.log(this.responseText);
+          // $('#code-result').val(result.stdout);
+        }
+      };
+      xhttp.open("POST", postURL, true);
+      xhttp.setRequestHeader("Content-type", "application/json");
+      xhttp.setRequestHeader("x-auth",xauth);
+      xhttp.send(JSON.stringify(send_data));
+      alert("Good Going!");
+      setTimeout(function(){window.location.href=window.location.href;},3000);
     }
   return this.over || (this.won && !this.keepPlaying);
 };

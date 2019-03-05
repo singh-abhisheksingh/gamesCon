@@ -18,6 +18,14 @@
   <meta name="HandheldFriendly" content="True">
   <meta name="MobileOptimized" content="320">
   <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0, maximum-scale=1, user-scalable=no, minimal-ui">
+  <script type="text/javascript">
+        var uname=localStorage.getItem("uname");
+        if(uname==null)
+        {
+          alert("Enter Admission Number and Username First");
+          window.location.href="../../index.html";
+        }
+  </script>
 </head>
 <body>
     <div style="font-size: 36px;">

@@ -11,6 +11,14 @@
     <link rel="icon" type="image/png" href="icon.png" />
     <link rel="apple-touch-icon" href="icon.png" />
     <link rel="stylesheet" href="index.css" />
+    <script type="text/javascript">
+      var uname=localStorage.getItem("uname");
+      if(uname==null)
+      {
+        alert("Enter Admission Number and Username First");
+        window.location.href="../../index.html";
+      }
+    </script>
   </head>
   <body>
     <div style="font-size: 36px;">

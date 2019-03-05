@@ -6,6 +6,15 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
       <link rel="stylesheet" type="text/css" href="gamestyle.css">
       <title>GamesCon</title>
+      <script type="text/javascript" src="games.js"></script>
+      <script type="text/javascript">
+        var uname=localStorage.getItem("uname");
+        if(uname==null)
+        {
+          alert("Enter Admission Number and Username First");
+          window.location.href="index.html";
+        }
+      </script>
     </head>
 
     <body>
@@ -13,7 +22,7 @@
         <div class="nav-wrapper light-blue ">
           <a href="#!" class="brand-logo" id="navb"><i class="material-icons" style="font-size: 56px; margin-left: 42vw;">games</i><span id="gspan">GamesCon</span></a>
           <a href="#" data-activates="mobile-demo" class="button-collapse"></a>
-          <a class="waves-effect waves-light btn-large right light-blue darken-3" style="width: 18vw;">LeaderBoard</a>
+          <a id="lboard" class="waves-effect waves-light btn-large right light-blue darken-3" href="leaderboard.html" >LeaderBoard</a>
         </div>
       </nav>
       </div>
@@ -31,7 +40,7 @@
               </div>
               <div class="card-action">
                 <a href="games/1/index.html">Play!</a>
-                <a href="#">Leaderboard</a>
+                <a href="games/1/leaderboard.html">Leaderboard</a>
               </div>
             </div>
           </div>
@@ -45,7 +54,7 @@
               </div>
               <div class="card-action">
                 <a href="games/2/index.html">Play!</a>
-                <a href="#">Leaderboard</a>
+                <a href="games/2/leaderboard.html">Leaderboard</a>
               </div>
             </div>
           </div>
@@ -59,7 +68,7 @@
               </div>
               <div class="card-action">
                 <a href="games/3/index.html">Play!</a>
-                <a href="#">Leaderboard</a>
+                <a href="games/3/leaderboard.html">Leaderboard</a>
               </div>
             </div>
           </div>
@@ -73,7 +82,7 @@
               </div>
               <div class="card-action">
                 <a href="games/4/index.html">Play!</a>
-                <a href="#">Leaderboard</a>
+                <a href="games/4/leaderboard.html">Leaderboard</a>
               </div>
             </div>
           </div>
@@ -87,7 +96,7 @@
               </div>
               <div class="card-action">
                 <a href="games/5/index.html">Play!</a>
-                <a href="#">Leaderboard</a>
+                <a href="games/5/leaderboard.html">Leaderboard</a>
               </div>
             </div>
           </div>
@@ -101,7 +110,7 @@
               </div>
               <div class="card-action">
                 <a href="games/6/index.html">Play!</a>
-                <a href="#">Leaderboard</a>
+                <a href="games/6/leaderboard.html">Leaderboard</a>
               </div>
             </div>
           </div>
