@@ -48,9 +48,7 @@ LocalStorageManager.prototype.getBestScore = function () {
 
 LocalStorageManager.prototype.setBestScore = function (score) {
   // $.post("/score",{data:score},function(data,status){
-
   //     })
-
   console.log(score+"X");
   var xauth=localStorage.getItem('x-auth');
   var postURL=localStorage.getItem("postURL");
