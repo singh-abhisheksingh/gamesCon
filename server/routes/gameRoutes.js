@@ -62,7 +62,7 @@ router.route('/submit').post(authenticate,async (req, res) => {
 
 router.route('/:id/leader').get(authenticate, async (req, res) => {
   var game = req.params.id;
-  console.log(game);
+  // console.log(game);
   var users = await User.aggregate([
     {
 			$project: {

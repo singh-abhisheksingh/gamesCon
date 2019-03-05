@@ -75,9 +75,9 @@ async function calculatePercentile(game, score){
   return less/len*100;
 }
 
-router.route('/getAuthToken').get(function(req,res){
-  var apiKey = jwt.sign({username:process.env.USERNAME,password:process.env.PASSWORD},process.env.JWT_SECRET).toString();
-  console.log(apiKey);
-});
+// router.route('/getAuthToken').get(function(req,res){
+//   var apiKey = jwt.sign({username:process.env.USERNAME,password:process.env.PASSWORD},process.env.JWT_SECRET).toString();
+//   console.log(apiKey);
+// });
 
 module.exports = router;
