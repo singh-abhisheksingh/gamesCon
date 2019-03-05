@@ -604,6 +604,7 @@ window.onload = function() {
     {
       console.log("Post= "+Object.keys(records).length);
       var xauth=localStorage.getItem('x-auth');
+      var postURL=localStorage.getItem("postURL");
       var send_data={
         gid:3,
         score: Object.keys(records).length,
