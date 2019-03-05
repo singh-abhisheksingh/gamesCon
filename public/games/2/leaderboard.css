@@ -1,0 +1,28 @@
+body{
+  background-color: #253FE1;
+}
+
+#main-table {
+  width: 50vw;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-height: 60vh;
+  overflow-y: auto;
+}
+
+#main-table table {
+  color: #fff;
+}
+
+#main-head{
+  color: white;
+  font-weight: bold;
+}
+
+#main-button{
+  position: absolute;
+  top: 10vh;
+  right: 10vw;
+}

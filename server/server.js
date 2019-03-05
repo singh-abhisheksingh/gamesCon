@@ -1,6 +1,5 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-
 const config = require('./config/config');
 
 const gameRoutes = require('./routes/gameRoutes');
@@ -23,12 +22,11 @@ app.use(bodyParser.json());
 app.use('/game', gameRoutes);
 app.use('/leader', leaderboardRoutes)
 
-// var errorPg = path.join(__dirname, "../public/views/404.html");
 app.get('*', function(req,res){
-  // res.sendFile(errorPg);
-  res.status(404).end('404 Page Not found');
+  res.status(404).redirect('http://gamescon.surge.sh/404.html');
+  res.end();
 });
 
-app.listen(port, '192.168.1.7', () => {
+app.listen(port, '192.168.1.9', () => {
   console.log(`Server is up on port ${port}`);
 });
